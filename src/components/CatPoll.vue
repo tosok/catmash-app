@@ -63,11 +63,11 @@ export default {
                   'Content-Type': 'application/json'
               }
           })
-          .then(response => {
+          .then(() => {
               this.msg = "Votre vote a bien été pris en compte.";
               this.load();
           })
-          .catch(error => {
+          .catch(() => {
               this.msg = "Une erreur s'est produite, veuillez réessayer plus tard.";
           })
       }

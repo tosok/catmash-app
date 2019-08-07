@@ -21,15 +21,8 @@
 </template>
 
 <script>
-import CatView from './components/CatView.vue'
-import CatPoll from './components/CatPoll.vue'
-
 export default {
-  name: 'app',
-  components: {
-      CatView,
-      CatPoll
-  }
+  name: 'app'
 }
 </script>
 
