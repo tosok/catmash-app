@@ -25,7 +25,4 @@
     color: #2c3e50;
   }
 
-  #app nav {
-    margin-bottom: 50px;
-  }
 </style>
