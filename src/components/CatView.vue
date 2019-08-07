@@ -1,11 +1,19 @@
 <template>
   <div class="cat-view">
-    <b-container>
+    <b-container v-if="!loading">
       <b-row class="text-center">
         <b-col cols="6" v-for="cat in cats" >
           <b-card :img-src="cat.url" :img-alt="cat.id">
             <b-card-text>{{ cat.rank }} vote(s)</b-card-text>
           </b-card>
+        </b-col>
+      </b-row>
+    </b-container>
+    <b-container v-if="loading">
+      <b-row class="text-center">
+        <b-col>
+          <b-spinner id="spinner" type="grow" label="Spinning"></b-spinner><br>
+          Chargement...
         </b-col>
       </b-row>
     </b-container>
@@ -17,7 +25,8 @@ export default {
   name: 'CatView',
   data() {
     return {
-        cats: []
+        cats: [],
+        loading: true
     }
   },
   created() {
@@ -25,7 +34,9 @@ export default {
       .then(response => response.json())
       .then(json => {
           this.cats = json;
+          this.loading = false;
       })
+      .catch( () => this.$router.push('/error'))
   }
 }
 
